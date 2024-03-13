@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Extract filename without extension
+filename=$(basename "$PYFILE" .py)
+
+# Compile the Python script
+python3 -m compileall "$PYFILE"
+
+# Rename the compiled file
+mv "__pycache__/$filename.pyc" "$filename.pyc"
+
+# Remove the __pycache__ directory
+rm -rf "__pycache__"
+
+echo "Compiling $PYFILE ..."
+
