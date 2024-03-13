@@ -1,17 +1,2 @@
 #!/bin/bash
-import os
-import py_compile
-
-# Retrieve the Python file name from the environment variable
-pyfile = os.environ.get("PYFILE")
-
-if pyfile:
-    try:
-        # Attempt to compile the Python file
-        py_compile.compile(pyfile, cfile=f"{os.path.splitext(pyfile)[0]}c")
-        print(f"Compiling {pyfile} ... done!")
-    except py_compile.PyCompileError as err:
-        print(f"Compilation error: {err}")
-else:
-    print("Please set the PYFILE environment variable to the Python file you want to compile.")
-
+python3 -c "import py_compile; py_compile.compile('$PYFILE', '$PYFILE' + 'c')"
