@@ -1,4 +1,4 @@
-#!/bin/usr/node
+#!/usr/bin/node
 const dict = require('./101-data.js').dict;
 const allList = Object.entries(dict);
 const vals = Object.values(dict);
